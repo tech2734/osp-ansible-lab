@@ -1,0 +1,11 @@
+---
+- name: Create osp_image_cache_dir
+  file:
+    state: directory
+    path: "{{ osp_image_cache_dir }}"
+
+- include_tasks: load-image.yml
+  loop: "{{ osp_images }}"
+  loop_control:
+    loop_var: osp_image
+    label: "{{ osp_image.name }}"

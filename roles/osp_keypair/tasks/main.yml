@@ -1,0 +1,7 @@
+
+---
+- include_tasks: define-keypair.yml
+  loop: "{{ osp_keypairs }}"
+  loop_control:
+    loop_var: osp_keypair
+    label: "{{ osp_keypair.name }}"

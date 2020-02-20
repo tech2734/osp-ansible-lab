@@ -1,0 +1,4 @@
+
+---
+osp_images: []
+osp_image_cache_dir: "{{ playbook_dir }}/images"

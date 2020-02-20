@@ -1,0 +1,6 @@
+
+---
+- include_tasks: install-haproxy.yml
+  when: three_tier_frontend_install_haproxy | bool
+- include_tasks: configure-haproxy.yml
+  when: three_tier_frontend_configure_haproxy | bool

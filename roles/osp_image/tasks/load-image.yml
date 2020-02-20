@@ -1,0 +1,14 @@
+---
+- name: Download {{ osp_image.name }} image
+  get_url:
+    url: "{{ osp_image.url }}"
+    dest: "{{ osp_image_cache_dir }}/{{ osp_image.name }}.{{ osp_image.disk_format }}"
+
+- name: Load RHEL image into Glance
+  os_image:
+    cloud: "{{ osp_cloud }}"
+    name: "{{ osp_image.name }}"
+    container_format: bare
+    disk_format: "{{ osp_image.disk_format }}"
+    state: present
+    filename: "{{ osp_image_cache_dir }}/{{ osp_image.name }}.{{ osp_image.disk_format }}"

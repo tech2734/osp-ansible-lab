@@ -1,0 +1,15 @@
+ 
+---
+- import_playbook: osp-infra.yml
+
+- import_playbook: osp-instances.yml
+
+- name: Refresh inventory
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+  - name: Refresh Inventory
+    meta: refresh_inventory
+
+- import_playbook: three-tier-app.yml

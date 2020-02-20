@@ -1,0 +1,7 @@
+
+---
+- include_tasks: define-instance.yml
+  loop: "{{ osp_instances }}"
+  loop_control:
+    loop_var: osp_instance
+    label: "{{ osp_instance.name }}"

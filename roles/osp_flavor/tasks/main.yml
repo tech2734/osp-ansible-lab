@@ -1,0 +1,6 @@
+---
+- include_tasks: define-flavor.yml
+  loop: "{{ osp_flavors }}"
+  loop_control:
+    loop_var: osp_flavor
+    label: "{{ osp_flavor.name }}"
